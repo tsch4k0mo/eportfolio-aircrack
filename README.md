@@ -9,9 +9,10 @@ I use virtual box to run my virtual machine. You can follow the steps from the [
 After installing aircrack on your machine, you also need to download the [RockYou wordlist](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) which will be used to decrypt the captured handshake. 
 ## Procedure of the attack
 Before starting the attack we have to make sure that our system has access to the wlan stick. We can do this by using the following command.
-![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig.PNG)<br>
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig.PNG)<br>
 We should see our wlan adapter (wlan0) which is in managed mode at the moment. In order to use it for performing the attack we have to change its mode to monitored by using the following command.
-![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/startMonitorMode.PNG)<br>
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/startMonitorMode.PNG)<br>
 After doing this we can use iwconfig again to confirm that the mode changed successfully.
-![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig2.PNG)<br>
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig2.PNG)<br>
 Subsequently we can get information about nearby networks by running:
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/2d9b8d3a28973516b812dd244ed566d3ac8a8b24/resources/nearbyNetworks.pdf) <br>
