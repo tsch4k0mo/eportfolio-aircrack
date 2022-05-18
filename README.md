@@ -15,4 +15,5 @@ We should see our wlan adapter (wlan0) which is in managed mode at the moment. I
 After doing this we can use iwconfig again to confirm that the mode changed successfully.
 <br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig2.PNG)<br>
 Subsequently we can get information about nearby networks by running:
-<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/2d9b8d3a28973516b812dd244ed566d3ac8a8b24/resources/nearbyNetworks.pdf) <br>
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/2d9b8d3a28973516b812dd244ed566d3ac8a8b24/resources/nearbyNetworks.pdf)<br>
+The command will give details about every nearby network but I "censored" them due to privacy reasons. Our target network will be "Chakratherapie Rapperich". We need the BSSID and the chanel. 
