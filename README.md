@@ -1,5 +1,5 @@
 # eportfolio-aircrack
-This is the repository for my e-Portfolio for the software engineering course 2021/2022. The topic of this presentation is the exploitation of insecure Wifi networks by using [aircrack-ng](https://www.aircrack-ng.org/)
+This is the repository for my e-Portfolio for the software engineering course 2021/2022. The topic of this presentation is the exploitation of insecure Wifi networks by using [aircrack-ng](https://www.aircrack-ng.org/). The learnings from this e-Portfolio may only be used on your own networks or networks which explicitly gave you their permission. 
 ## Setup and requirements
 The most important component for performing this attack is a wlan adapter which is able to switch into monitor mode. I'll be using the [Fritzbox wlan stick](https://avm.de/produkte/fritzwlan/fritzwlan-stick-ac-860/) eventhough there are better alternatives for this purpose. 
 In addition to that the aircrack toolsuite needs to be installed on your machine. You can do this by following the installation steps from the [official website](https://www.aircrack-ng.org/install.html) or by setting up a virutal machine (my recommendation) which already has all the tools needed and even more handy stuff :) If you need any help during the setup feel free to contact me.  
@@ -15,5 +15,11 @@ We should see our wlan adapter (wlan0) which is in managed mode at the moment. I
 After doing this we can use iwconfig again to confirm that the mode changed successfully.
 <br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/dfb3d33a211d6d7e8340a8ece59a27d010079258/resources/iwconfig2.PNG)<br>
 Subsequently we can get information about nearby networks by running:
-<br> <img src="https://github.com/tsch4k0mo/eportfolio-aircrack/blob/c37d964b60003b68c0247d74d40e4a96a7339b45/resources/nearbyNetworks.pdf"/><br>
-The command will give details about every nearby network but I "censored" them due to privacy reasons. Our target network will be "Chakratherapie Rapperich". We need the BSSID and the chanel. 
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/1db478798a93447818621f0a61cb4ce770974d57/resources/nearbyNetworks%20(1)-1.png)<br>
+The command will give details about every nearby network but I "censored" them due to privacy reasons. Our target network will be "Chakratherapie Rapperich". We need its BSSID and chanel. 
+After getting this information, we want to deauthenticate any connected clients. 
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/a8b05bb7b56dbe88dfae1beac603658a0beaf855/resources/deAuth-1.png)</br>
+This command by itself can be used as a denial of service attack because it will keep on deauthenticating clients from the network. But we use it because we want the clients to reconnect to the network. That way we can capture the 4-way-handshake which is exchanged when connecting to a network. While running the command above, we also want to listen for the handshake in another terminal.
+<br> ![](https://github.com/tsch4k0mo/eportfolio-aircrack/blob/c1ce45a45cc679b60cd2eca07aa69d8629982352/resources/handshakeCapture-1.png)</br>
+After capturing a handshake, it is shown in the red box.
+The last step is decrypting the captured handshake with the help of a wordlist. One can also decrypt it by using brute force tools like [hashcat](https://hashcat.net/hashcat/). Both of this methods will not work for strong passwords. In case of a strong password you will have to try other ways to get the password, like setting up an [evil twin](https://en.wikipedia.org/wiki/Evil_twin_(wireless_networks)) which will not be covered in this e-Portfolio. 
